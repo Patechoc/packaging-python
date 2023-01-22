@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+	<html class="sl-root decks export offline loaded">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Packaging-python</title>
+
+
+		<link rel="stylesheet" type="text/css" href="lib/offline-v2.css">
+
+
+
+		<!-- User CSS -->
+		<style id="user-css-output" type="text/css">
+			.reveal .monospace-font h1,
+.reveal .monospace-font h2,
+.reveal .monospace-font h3 {
+  font-family: monospace;
+}
+
+		</style>
+	</head>
+	<body class="reveal-viewport theme-font-helvetica theme-color-black-mint">
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-image="packaging-python/5575a831fd35ef978963ce97fc5c4737" data-background-opacity="0.2" data-background-transition="fade" data-id="b82e90deecf7b0b19c0cbf212b943e0b"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 189.379px; height: auto;" data-origin-id="71f9128d7e7d818189b2fbe5ff507ea9" data-block-id="3cccd9a6bc4d7cc7126d261c4615b284"><div class="sl-block-style" style="z-index: 10; transform: rotate(0deg); filter: drop-shadow(rgba(28, 235, 123, 0.7) 0px 0px 6px);"><div class="sl-block-content monospace-font" data-placeholder-tag="h1" style="z-index: 10; color: rgb(28, 235, 123); font-size: 150%; line-height: 1.04;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h1>Python</h1>
+
+<h1><span style="font-size:1.0em">Packaging</span></h1>
+</div></div></div>
+
+<div class="sl-block" data-block-type="text" style="width: 837px; left: 61.5px; top: 440.379px; height: auto;" data-name="text-d18e72" data-origin-id="527aaac36763f621d2310da8d44ba10a" data-block-id="2cf5635e4cb33dee6a107589dd00a9e2"><div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.7) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="p" style="z-index: 11; text-align: center; color: rgb(28, 235, 123); font-size: 110%;" data-placeholder-text="Text">
+<p><span style="font-size:0.7em">Jan. 2023</span></p>
+</div></div></div>
+
+
+
+
+</section><section data-id="b315b3fd892f0cab77bcf83325ee5824"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="0ccf8ea349bd2299073a48b842f0dbb9">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Content</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 188.5px;" data-name="text-baf698" data-block-id="971d88341a6c358fa96ac1f61c827646"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<ul>
+	<li style="text-align:left"><span style="font-size:1.4em">Python package: Concepts/Terminology</span></li>
+	<li style="text-align:left"><span style="font-size:1.4em">Demo of a package: Calculating \( \pi \)</span></li>
+	<li style="text-align:left"><span style="font-size:1.4em">Python (standard) library?</span></li>
+</ul>
+</div></div></section><section class="stack" data-id="85fb49c31de21411ba8412fea80a93d5"><section data-id="b8a54ed971159e3be7a37fe07d07d043"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="412009103459ccc6a77b36465c8191de">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Concepts</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 160px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="d932190e2dea3d5d278cffdcbce3972f">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 1. CONCEPTS</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 166px; top: 14px;" data-block-id="e06df8f36065a17a5d20bab93ab6fd70">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="787" data-line-y2="0.5" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="787" height="1" viewbox="0 0 787 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="787" y2="0.5"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="787" y2="0.5"></line></svg></div></div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 623.058px; left: 96.942px; top: 210px;" data-name="text-baf698" data-block-id="f93392e93d72cc1b0ea8b0a50710f472"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17;">
+<ul>
+	<li style="text-align:left"><span style="font-size:1.4em">Python script?</span></li>
+	<li style="text-align:left"><span style="font-size:1.4em">Python module?</span></li>
+	<li style="text-align:left"><span style="font-size:1.4em">Python package?</span></li>
+	<li style="text-align:left"><span style="font-size:1.4em">Python (standard) library?</span></li>
+</ul>
+</div></div></section><section data-id="9b7ed042abb77dc71853e9cd4b936f53"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="bb67e8e8d788ebb28bb7bcfc9c280956">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Concepts: script &amp; module</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 160px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="e05e7dab62d5459e5574cb06c3609af7">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 1. CONCEPTS</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 166px; top: 14px;" data-block-id="92742e59b91f0b3917b33aa52f5100ea">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="787" data-line-y2="0.5" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="787" height="1" viewbox="0 0 787 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="787" y2="0.5"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="787" y2="0.5"></line></svg></div></div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 400px; height: 280px; left: 80px; top: 177px;" data-name="code-90450a" data-block-id="d0e83fb0a44df550d9383b381a0fd689"><div class="sl-block-style" style="z-index: 13; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content notranslate" data-highlight-theme="ir-black" data-code-frame="osx" style="z-index: 13;"><pre class="python" style="font-size: 22px; line-height: 26px;"><code data-line-numbers=""># in mod_add.py
+
+def add(a, b):
+  return a+b</code></pre></div></div></div>
+<div class="sl-block" data-block-type="code" style="width: 400px; height: 280px; left: 520px; top: 177px;" data-name="code-c4f622" data-block-id="f098717b968ec30e1c926ab438741d1c"><div class="sl-block-style" style="z-index: 14; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content notranslate" data-highlight-theme="ir-black" data-code-frame="osx" style="z-index: 14;"><pre class="python" style="font-size: 22px; line-height: 26px;"><code data-line-numbers=""># in my_script.py
+
+def add(a, b):
+  return a+b
+
+result = add(30,12)
+print(result)</code></pre></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 371.147px; left: 521.184px; top: 490px;" data-name="text-00d55d" data-block-id="c428a4f38a711d0cce545618f9c723e3"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;">
+<p style="text-align:left">Script</p>
+
+<ul>
+	<li>meant to be run</li>
+	<li>statements outside functions or class</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 412.712px; left: 80px; top: 488px;" data-name="text-baf698" data-block-id="09b62f0b5954cddb77031890ab3aae1b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;">
+<p style="text-align:left">Module</p>
+
+<ul>
+	<li>meant to be imported into scripts or other modules</li>
+	<li>defines functions, classes, ... for use in scripts</li>
+</ul>
+</div></div></section><section data-id="78ccc8e5f4eda6a6351c00ab40b22858"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="0a9815c3b7a14ab241e01f079dee0dd3">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Concepts: module called in a script</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 160px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="3dcc4610a122ce085ad8901151ce15a4">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 1. CONCEPTS</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 166px; top: 14px;" data-block-id="e3441bc05d05718d5952729094da6868">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="787" data-line-y2="0.5" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="787" height="1" viewbox="0 0 787 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="787" y2="0.5"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="787" y2="0.5"></line></svg></div></div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 400px; height: 279.511px; left: 80px; top: 177px;" data-name="code-90450a" data-block-id="8e630ce86a4cf17a46a56bca3754c25b"><div class="sl-block-style" style="z-index: 14; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content notranslate" data-highlight-theme="ir-black" data-code-frame="osx" style="z-index: 14;"><pre class="python" style="font-size: 22px; line-height: 26px;"><code data-line-numbers=""># in mod_add.py
+
+def add(a, b):
+  return a+b</code></pre></div></div></div>
+<div class="sl-block" data-block-type="code" style="width: 400px; height: 279.511px; left: 520px; top: 177px;" data-name="code-c4f622" data-block-id="9ad911f6b129b419ef1363c7171ae696"><div class="sl-block-style" style="z-index: 15; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content notranslate" data-highlight-theme="ir-black" data-code-frame="osx" style="z-index: 15;"><pre class="python" style="font-size: 22px; line-height: 26px;"><code data-line-numbers=""># in my_script.py
+
+from mod_add import add
+
+
+result = add(30,12)
+print(result)</code></pre></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 371.147px; left: 521.184px; top: 490px;" data-name="text-00d55d" data-block-id="12886c5320e338bc20b1f6a07aeca040"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;">
+<p style="text-align:left">Script</p>
+
+<ul>
+	<li>meant to be run</li>
+	<li>statements outside functions or class</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 412.712px; left: 80px; top: 488px;" data-name="text-baf698" data-block-id="91a0ac1ebed31bc5e8e36970f5fcba4e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17;">
+<p style="text-align:left">Module</p>
+
+<ul>
+	<li>meant to be imported into scripts or other modules</li>
+	<li>defines functions, classes, ... for use in scripts</li>
+</ul>
+</div></div></section><section data-id="51c4057579d7523d7879edffcdcf6dc3"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="aa4bc6871d792ad9e62a0b9d76510a42">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Concepts: {script, module} all-in-one</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 160px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="ec64e5f4caf9a80429cdabfd12563886">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 1. CONCEPTS</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 166px; top: 14px;" data-block-id="2028987fec983f9852c74da3a96d4feb">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="787" data-line-y2="0.5" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="787" height="1" viewbox="0 0 787 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="787" y2="0.5"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="787" y2="0.5"></line></svg></div></div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 371.147px; left: 521.184px; top: 490px;" data-name="text-00d55d" data-block-id="59ff3eb95ef52a65be7a6523df0944ee"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;">
+<p style="text-align:left">Script</p>
+
+<ul>
+	<li>meant to be run</li>
+	<li>statements outside functions or class</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 412.712px; left: 80px; top: 488px;" data-name="text-baf698" data-block-id="e5c19c586a3da986e2ee1eb26caa7220"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;">
+<p style="text-align:left">Module</p>
+
+<ul>
+	<li>meant to be imported into scripts or other modules</li>
+	<li>defines functions, classes, ... for use in scripts</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 400px; height: 279.511px; left: 80px; top: 177px;" data-block-id="d9b022b98dba08369291b44f03ca29ea" data-name="code-5146dc"><div class="sl-block-style" style="z-index: 17; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content notranslate" data-highlight-theme="ir-black" data-code-frame="osx" style="z-index: 17;"><pre class="python" style="font-size: 22px; line-height: 26px;"><code data-line-numbers=""># in (exec.) mod_add.py
+
+def add(a, b):
+  return a+b
+
+if __name__ == "__main__":
+  result = add(30,12)
+  print(result)</code></pre></div></div></div>
+<div class="sl-block" data-block-type="code" style="width: 400px; height: 279.511px; left: 520px; top: 177px;" data-block-id="d45ff75cde69b34f39c7936b719982c1" data-name="code-f8cd4a"><div class="sl-block-style" style="z-index: 18; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content notranslate" data-highlight-theme="ir-black" data-code-frame="osx" style="z-index: 18;"><pre class="python" style="font-size: 22px; line-height: 26px;"><code data-line-numbers=""># in my_script.py
+
+from mod_add import add
+
+
+result = add(30,12)
+print(result)</code></pre></div></div></div></section><section data-id="fc57cdd5d071a302b920f48aa3986967"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="8acdb32e0c91abce691c57c255878c72">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Concepts: package</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 160px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="295a7a621d949cdb50f41de515e5070a">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 1. CONCEPTS</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 166px; top: 14px;" data-block-id="edfc8c806e7b83a2f81831a7b95f30ae">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="787" data-line-y2="0.5" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="787" height="1" viewbox="0 0 787 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="787" y2="0.5"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="787" y2="0.5"></line></svg></div></div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 880px; left: 30px; top: 590px;" data-name="text-baf698" data-block-id="638e3441e790597603021eea6d9d9704"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<ul>
+	<li>a collection of related modules and/or sub-packages</li>
+	<li>can be an individual module, but usually a collection of them</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 312px; height: 242.942px; left: 168px; top: 140px; min-width: 1px; min-height: 1px;" data-name="image-b92f84" data-block-id="3b4eb292131a3666f8bae9bb7f66f100"><div class="sl-block-content" style="z-index: 15;"><img class="" data-natural-width="221" data-natural-height="181" data-crop-x="0" data-crop-y="0.049261" data-crop-width="1" data-crop-height="0.950739" style="left: 0px; top: -13px; width: 312px; height: 256px;" data-lazy-loaded="" data-src="packaging-python/2d386f8d7b28d60858381bc32eb51836.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 316.616px; height: 454px; left: 496.068px; top: 122px; min-width: 1px; min-height: 1px;" data-name="image-c2306b" data-block-id="cb3da61dbba0e651764b9a0a9fb1479f"><div class="sl-block-content" style="z-index: 14;"><img class="" data-natural-width="229" data-natural-height="317" data-crop-x="0.034615" data-crop-y="0" data-crop-width="0.965385" data-crop-height="1" style="left: -11px; top: 0px; width: 328px; height: 454px;" data-lazy-loaded="" data-src="packaging-python/b9d887522f3ccd139ac6feee15ac2e75.png"></div></div></section><section data-id="9371a55c94189db256dc57de29956242"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="5f4893b535dc1f8d4c9234af4b86d9d9">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Concepts: package (example)</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 160px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="5a51109b490f2166bb8890d8888713f7">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 1. CONCEPTS</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 166px; top: 14px;" data-block-id="f6f180e7225109e749bc9e54af9f1786">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="787" data-line-y2="0.5" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="787" height="1" viewbox="0 0 787 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="787" y2="0.5"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="787" y2="0.5"></line></svg></div></div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="image" style="width: 590.898px; height: 460.06px; left: 184.551px; top: 147.68px; min-width: 1px; min-height: 1px;" data-name="image-ae42fe" data-block-id="a5e585fe226540d36f6bf9028a2d7cf5"><a class="sl-block-content" style="z-index: 13;" href="https://github.com/realpython/codetiming" target="_blank"><img class="" data-natural-width="971" data-natural-height="756" data-lazy-loaded="" data-src="packaging-python/574a76cecbfe8c3f0d8a1e39d56589bd.png"></a></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 184.551px; top: 610.5px;" data-name="text-aca9b3" data-block-id="5bc949e66cfd127114994424e74ad925"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<p style="text-align:left"><em><span style="font-size:0.7em"><span class="caption-text">codetiming package (<a href="https://github.com/realpython/codetiming" target="_blank">source: Real Python</a>)</span></span></em></p>
+</div></div></section><section data-id="4b5de13fed255310de9ca8ef47565d42"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="e7a773f0a1e3b10fd6e7fb4235bd4a36">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Concepts: libraries</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 160px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="ddbbde20b49f08247f91d1bd9f9e9573">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 1. CONCEPTS</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 166px; top: 14px;" data-block-id="b4cb5699e725ddeff1445bdb3d26fbc5">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="787" data-line-y2="0.5" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="787" height="1" viewbox="0 0 787 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="787" y2="0.5"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="787" y2="0.5"></line></svg></div></div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 258.048px; left: 14.737px; top: 257.5px;" data-name="text-baf698" data-block-id="1b6703e4b7f515c5b15d6fad155bcf9b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<p style="text-align:left"><span style="font-size:0.9em">Collection of modules &amp; packages</span></p>
+
+<ul>
+	<li><span style="font-size:0.9em"><em>Python standard library</em></span></li>
+	<li><span style="font-size:0.9em"><em>Third-party libraries</em></span></li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 294.778px; top: 661px;" data-name="text-aca9b3" data-block-id="9f4c18322164ef5c802502bdeffe3d02"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<p style="text-align:left"><span style="font-size:0.7em">What are Python Libraries</span><em><span style="font-size:0.7em"><span class="caption-text"> (<a href="https://ajaytech.co/what-are-python-libraries/" target="_blank">source</a>)</span></span></em></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 305.725px; height: 163.053px; left: 1017.06px; top: 396.947px; min-width: 1px; min-height: 1px;" data-name="image-d1b1fa" data-block-id="bd9c4232e7b46f8d3c81630396deb235"><div class="sl-block-content" style="z-index: 15;"><img class="" data-natural-width="900" data-natural-height="480" data-lazy-loaded="" data-src="packaging-python/22a53b50c7703844f6395ff1df3379c5.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 626.194px; height: 512.962px; left: 294.778px; top: 140.466px; min-width: 1px; min-height: 1px;" data-name="image-c1782c" data-block-id="c9fba5e4410931300f1159fbdfed5529"><div class="sl-block-content" style="z-index: 16;"><img class="" data-natural-width="1648" data-natural-height="1350" data-lazy-loaded="" data-src="packaging-python/bb722a420c2a1991637bece1890ecfe4.png"></div></div></section><section data-id="5094384ce74d809eec30fae6c3dba384"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="26f4ca947b5aae93fbe73b815cfa23a6">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Concepts: Python standard library</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 160px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="136fab0802584cc6a7eada05fcb1a0d5">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 1. CONCEPTS</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 166px; top: 14px;" data-block-id="7263b611af9a48c84e1c10e05efe3665">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="787" data-line-y2="0.5" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="787" height="1" viewbox="0 0 787 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="787" y2="0.5"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="787" y2="0.5"></line></svg></div></div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 754.044px; left: 6px; top: 128px;" data-name="text-baf698" data-block-id="d58c700a89d21197c55a68038e7d914f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<ul>
+	<li>a collection of modules &amp; packages</li>
+	<li>come bundled with every installation of python</li>
+	<li>examples: <em>os, sys, math, dateutil, email, json, ...</em>
+</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 934.481px; height: 358.432px; left: 12.7595px; top: 280px; min-width: 1px; min-height: 1px;" data-name="image-b6628e" data-block-id="6254ea5fae15bf3764c1dc0715dde3b7"><div class="sl-block-content" style="z-index: 14;"><img class="" data-natural-width="960" data-natural-height="540" data-crop-x="0.033797" data-crop-y="0.353357" data-crop-width="0.94831" data-crop-height="0.646643" style="left: -33px; top: -196px; width: 985px; height: 554px;" data-lazy-loaded="" data-src="packaging-python/72160d35f97736ba3e6307d5965c5166.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 18.5194px; top: 630px;" data-name="text-aca9b3" data-block-id="46c3ab5d2c33118797ce1ba14a4fa9e0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;">
+<p style="text-align:left"><span style="font-size:0.7em">What are Python Libraries</span><em><span style="font-size:0.7em"><span class="caption-text"> (<a href="https://ajaytech.co/what-are-python-libraries/" target="_blank">source</a>)</span></span></em></p>
+</div></div></section><section data-id="448905eaf709917ef8fa14f72302ca60"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="30075d76ed0e886cf103b1115eaabc77">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Concepts: third-party libraries</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 160px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="31c0b1c48bb62973cc03f09ab47a9324">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 1. CONCEPTS</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 166px; top: 14px;" data-block-id="56ab68525af95b0b91c2562f073c88f5">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="787" data-line-y2="0.5" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="787" height="1" viewbox="0 0 787 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="787" y2="0.5"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="787" y2="0.5"></line></svg></div></div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="image" style="width: 447.425px; height: 238.627px; left: 166px; top: 251.373px; min-width: 1px; min-height: 1px;" data-name="image-d1b1fa" data-block-id="fc69eac42fbcd028a55e7141151a7103"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="900" data-natural-height="480" data-lazy-loaded="" data-src="packaging-python/22a53b50c7703844f6395ff1df3379c5.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 264.957px; left: 688.043px; top: 180.5px;" data-name="text-3e7137" data-block-id="bcfd1030f660a40dc5480654468e1486"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<ul>
+	<li>requests</li>
+	<li>Django</li>
+	<li>Flask</li>
+	<li>SQLAlchemy</li>
+	<li>numpy</li>
+	<li>scipy</li>
+	<li>pandas</li>
+	<li>pytest</li>
+	<li>pylint</li>
+	<li>flake8</li>
+	<li>psycopg2</li>
+	<li>...</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 216.926px; height: 90.386px; left: 71.7618px; top: 169px; min-width: 1px; min-height: 1px;" data-name="image-070105" data-block-id="ca0e3ecb776d480d13568869894f38e2"><div class="sl-block-content" style="z-index: 15;"><img class="" data-natural-width="348" data-natural-height="145" data-lazy-loaded="" data-src="packaging-python/642829c35e2d5c925fd77f81c3e30e0d.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 173.548px; height: 68.7367px; left: 125.923px; top: 516.532px; min-width: 1px; min-height: 1px;" data-name="image-196127" data-block-id="d36ed464a7ecb067683231f312346f9e"><div class="sl-block-content" style="z-index: 16;"><img class="" data-natural-width="356" data-natural-height="141" data-lazy-loaded="" data-src="packaging-python/8e314b1d6641fa4264e9f6f7c149421b.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 316.883px; height: 75.9415px; left: 231.271px; top: 592.029px; min-width: 1px; min-height: 1px;" data-name="image-cf3332" data-block-id="a71cb395a7d03c860a6e8f35022827f8"><div class="sl-block-content" style="z-index: 17;"><img class="" data-natural-width="459" data-natural-height="110" data-lazy-loaded="" data-src="packaging-python/f222b99e62c5c2d01f468980b913db81.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 223.701px; height: 87.237px; left: 376.15px; top: 192.763px; min-width: 1px; min-height: 1px;" data-name="image-2e1079" data-block-id="4254acf122829c90bbb03fbc54b88708"><div class="sl-block-content" style="z-index: 18;"><img class="" data-natural-width="359" data-natural-height="140" data-lazy-loaded="" data-src="packaging-python/e57235decf93e293020b948961c1eb20.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 269.775px; height: 96.143px; left: 439.786px; top: 480.27px; min-width: 1px; min-height: 1px;" data-name="image-18e078" data-block-id="daf4780dfeb73456aeeb04562feacdbc"><div class="sl-block-content" style="z-index: 19;"><img class="" data-natural-width="376" data-natural-height="134" data-lazy-loaded="" data-src="packaging-python/085e5688e6133e05c9a5b6ca7549e038.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 176.285px; height: 78.9338px; left: 6px; top: 279.533px; min-width: 1px; min-height: 1px;" data-name="image-7d39e1" data-block-id="1af22e14b3a178d823ad52c66512066d"><div class="sl-block-content" style="z-index: 20;"><img class="" data-natural-width="335" data-natural-height="150" data-lazy-loaded="" data-src="packaging-python/a9a371882ef40606d37ed7e372895b6e.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 121.898px; height: 156.374px; left: 0px; top: 394.526px; min-width: 1px; min-height: 1px;" data-name="image-c66d21" data-block-id="5f06a1f74c6e38eefb3db3089ab37ad1"><div class="sl-block-content" style="z-index: 21;"><img class="" data-natural-width="198" data-natural-height="254" data-lazy-loaded="" data-src="packaging-python/89c07f5641e768907106ebf7e78c0fe7.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 117.122px; height: 136.287px; left: 592.439px; top: 302.543px; min-width: 1px; min-height: 1px;" data-name="image-d8a760" data-block-id="924f636ab72ef95eb785371b636a2169"><div class="sl-block-style" style="z-index: 22; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><a class="sl-block-content" style="z-index: 22;" href="https://github.com/orgs/jupyter/repositories" target="_blank"><img class="" data-natural-width="110" data-natural-height="128" data-lazy-loaded="" data-src="packaging-python/2f2e41adb43c0f3d8d4ee4245d1e689c.png"></a></div></div></section><section data-id="b6a64fa9c498a0076358b92572bae598"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="6d607027961e22afee5b3770fb13a132">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Example 3rd-party libraries: <em>Jupyter</em>
+</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 160px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="88333af6d71e89addafb96206f0184c6">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 1. CONCEPTS</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 166px; top: 14px;" data-block-id="a5acbb09e194358f793bedfb3c4e6315">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="787" data-line-y2="0.5" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="787" height="1" viewbox="0 0 787 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="787" y2="0.5"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="787" y2="0.5"></line></svg></div></div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="image" style="width: 144.183px; height: 167.776px; left: 655.817px; top: 140px; min-width: 1px; min-height: 1px;" data-name="image-d8a760" data-block-id="401a7386338af0a62b8380d5ceb55f45"><div class="sl-block-style" style="z-index: 14; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><a class="sl-block-content" style="z-index: 14;" href="https://docs.jupyter.org/en/latest/projects/architecture/content-architecture.html" target="_blank"><img class="" data-natural-width="110" data-natural-height="128" data-lazy-loaded="" data-src="packaging-python/2f2e41adb43c0f3d8d4ee4245d1e689c.png"></a></div></div>
+<div class="sl-block" data-block-type="image" style="width: 740.664px; height: 581.478px; left: 148.461px; top: 129.261px; min-width: 1px; min-height: 1px;" data-name="image-0e0d70" data-block-id="7d2446dacbca8832792fa9037a967952"><a class="sl-block-content" style="z-index: 13;" href="https://docs.jupyter.org/en/latest/projects/architecture/content-architecture.html" target="_blank"><img class="" data-natural-width="1568" data-natural-height="1231" data-lazy-loaded="" data-src="packaging-python/b06d07f8bc3b290bc25d5bd762a5a502.png"></a></div></section></section><section class="stack" data-id="37aa8fe7e8057ddff752d52ad28ee68f"><section data-id="14a3cecf6533a3e0f490f4a3445d48e2"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="90166570d15d765adcfd96315058452d">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Packaging Flow</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 202.825px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="721b60b4178e5fa67a5c48a231442373">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 2. PACKAGING FLOW</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 198.748px; top: 14.5px;" data-block-id="b95bb518403632551a2ffb92b6df3718">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="754.2514619883041" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="754.2514619883041" height="1" viewbox="0 0 754.2514619883041 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="754.2514619883041" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="754.2514619883041" y2="0"></line></svg></div></div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="image" style="width: 733.833px; height: 518px; left: 103.084px; top: 140px; min-width: 1px; min-height: 1px;" data-name="image-1a2084" data-block-id="41d3c0912d16b6fde999d0793215e198"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="833" data-natural-height="588" data-lazy-loaded="" data-src="packaging-python/1d35520e7f059a26a7427403e2ef43cc.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 107.413px; top: 661px;" data-name="text-aca9b3" data-block-id="d82c899368da7c5965d9233bc87b7ca6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<p style="text-align: left;"><em><span style="font-size:0.7em"><span class="caption-text">The Python package cycle (<a href="https://py-pkgs.org/04-package-structure.html" target="_blank">source: Python Packages</a>)</span></span></em></p>
+</div></div></section><section data-id="3231d93fb94f89267195b5e63cf67fc9"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="2d947fe75e849fd7661ffdce282fd062">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Packaging Flow</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 202.825px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="f9889e60bfbd9942f1c7fff55672254e">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 2. PACKAGING FLOW</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 198.748px; top: 14.5px;" data-block-id="203cc06d8f00e13cc516ff6b796ce27a">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="754.2514619883041" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="754.2514619883041" height="1" viewbox="0 0 754.2514619883041 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="754.2514619883041" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="754.2514619883041" y2="0"></line></svg></div></div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 940.027px; left: 38.8664px; top: 140px;" data-name="text-ca01c1" data-block-id="33849fdeb456cad7cf2c5788bbe78656"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<p style="text-align:left">Develop &amp; Configure a Python Package</p>
+
+<p style="text-align:left">  - Create your Source Tree</p>
+
+<p style="text-align:left">  - Package configuration file</p>
+
+<p style="text-align:left">Build &amp; Distribute a Python Package</p>
+
+<p style="text-align:left">  - Build Artifacts (source distribution, built distribution)</p>
+
+<p style="text-align:left">  - Upload to the package distribution service (PyPi, Artifactory, ...)</p>
+
+<p style="text-align:left">  - Binaries &amp; Dependencies</p>
+
+<p style="text-align:left">Download &amp; Install</p>
+</div></div>
+
+
+<div class="sl-block" data-block-type="image" style="width: 180.127px; height: 93.8282px; left: 175.318px; top: 553.109px; min-width: 1px; min-height: 1px;" data-name="image-a20707" data-block-id="3501f072eeede8c50d2e0a76a98ffcae"><a class="sl-block-content" style="z-index: 14;" href="https://python-poetry.org/" target="_blank"><img class="" data-natural-width="311" data-natural-height="162" data-lazy-loaded="" data-src="packaging-python/6c128a200fb75f461e8e84724b828b2a.png"></a></div>
+<div class="sl-block" data-block-type="image" style="width: 142.288px; height: 93.8278px; left: 387.443px; top: 553.109px; min-width: 1px; min-height: 1px;" data-name="image-242f00" data-block-id="60c5c5d77486c84c0ecbadca151973b1"><a class="sl-block-content" style="z-index: 15;" href="https://flit.pypa.io" target="_blank"><img class="" data-natural-width="276" data-natural-height="182" data-lazy-loaded="" data-src="packaging-python/b2b09642d006eb05ef79164e8b4f759a.png"></a></div>
+<div class="sl-block" data-block-type="image" style="width: 187.656px; height: 93.828px; left: 561.731px; top: 553.109px; min-width: 1px; min-height: 1px;" data-name="image-b6ce5e" data-block-id="378ae5c025457b14b710b0eb56279bcf"><a class="sl-block-content" style="z-index: 16;" href="https://setuptools.pypa.io/en/latest/userguide/index.html" target="_blank"><img class="" data-natural-width="318" data-natural-height="159" data-lazy-loaded="" data-src="packaging-python/03dfbe2bb71e7f444f3cc41bf3f11c1e.png"></a></div></section><section data-id="2b9d42443ccc920d953f11a5e34f1084"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="e526bd4583c074233542f34727219dd7">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>History, Tips &amp; Challenges</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 202.825px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="092f8bbb1ab56725860c9999d560e27c">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 2. PACKAGING FLOW</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 198.748px; top: 14.5px;" data-block-id="32ff4c3d98169c58fb62c2ac7b37a411">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="754.2514619883041" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="754.2514619883041" height="1" viewbox="0 0 754.2514619883041 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="754.2514619883041" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="754.2514619883041" y2="0"></line></svg></div></div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 66.8005px; top: 649.618px;" data-name="text-aca9b3" data-block-id="9b068cf84e6e8ca947cb800089734617"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" dir="ui">
+<p style="text-align:left"><em><span style="font-size:0.7em">Packaging Demystified <span class="caption-text">(<a href="https://www.youtube.com/watch?v=ApDThpsr2Fw" target="_blank">source: PyCon2021 Bernát</a>)</span></span></em></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 806.399px; height: 497.916px; left: 66.8005px; top: 140px; min-width: 1px; min-height: 1px;" data-name="image-119a9f" data-block-id="9e869295c6bbf0a2b4efe318226d328a"><div class="sl-block-style" style="z-index: 14; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><a class="sl-block-content" style="z-index: 14;" href="https://www.youtube.com/watch?v=ApDThpsr2Fw" target="_blank"><img class="" data-natural-width="1077" data-natural-height="665" data-lazy-loaded="" data-src="packaging-python/4767889b1b4f459f4d077c99a1584e1b.png"></a></div></div></section></section><section class="stack" data-id="14d73916bd2c807c4e22761ac3554b76"><section data-id="8af79b076910585251b6302a58c6b961"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="f565049f5bf5db9bb47742fbea3d86f7">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Developing a package</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 202.825px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="12692a92a9e77db6ece6511891906482">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 3. DEMO PACKAGE</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 177.336px; top: 14.5px;" data-block-id="9db136154683dc0426832a4ba12add67">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="775.663967611336" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="775.663967611336" height="1" viewbox="0 0 775.663967611336 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="775.663967611336" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="775.663967611336" y2="0"></line></svg></div></div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="image" style="width: 733.833px; height: 518px; left: 103.084px; top: 140px; min-width: 1px; min-height: 1px;" data-name="image-1a2084" data-block-id="cbd04037c265343488cba1cdfc34d111"><div class="sl-block-style" style="z-index: 13; opacity: 0.32;"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="833" data-natural-height="588" data-lazy-loaded="" data-src="packaging-python/1d35520e7f059a26a7427403e2ef43cc.png"></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 107.413px; top: 661px;" data-name="text-aca9b3" data-block-id="2498fdfcc21346ecc62b30094a1b2651"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<p style="text-align: left;"><em><span style="font-size:0.7em"><span class="caption-text">The Python package cycle (<a href="https://py-pkgs.org/04-package-structure.html" target="_blank">source: Python Packages</a>)</span></span></em></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 295.799px; height: 211.737px; left: 103.084px; top: 446.263px; min-width: 1px; min-height: 1px;" data-block-id="1523361fc9ad0bc692d33b795c09b986" data-name="image-f1e7a9"><div class="sl-block-content" style="z-index: 16;"><img class="" data-natural-width="833" data-natural-height="588" data-lazy-loaded="" data-crop-x="0" data-crop-y="0.591241" data-crop-width="0.403087" data-crop-height="0.408759" style="left: 0px; top: -306px; width: 734px; height: 518px;" data-src="packaging-python/1d35520e7f059a26a7427403e2ef43cc.png"></div></div></section><section data-id="5ab636b7b039f6923e01baa646d41cb6"><div class="sl-block" data-block-type="text" style="width: 688.074px; left: 135.963px; top: 184px; height: auto;" data-name="text-2fba24" data-block-id="4a06be9e396a1b03d0ce9458e1fde397"><div class="sl-block-content" data-placeholder-tag="p" style="text-align: left; font-size: 160%; z-index: 10;" dir="ui" data-placeholder-text="Text">
+<h2 style="text-align:center"><span style="font-size:1.0em">Calculating \( \pi \)</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="math" style="width: auto; height: auto; left: 118px; top: 378.798px;" data-name="math-7eb121" data-block-id="fc5b03f9699a74f47e8f0a2a9efa1bf8"><div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content neon-text notranslate" style="z-index: 11; font-size: 130%; color: rgb(28, 235, 123);"><div class="math-input">\pi = 4 (1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\cdots)</div></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 291px;" data-name="text-0828f3" data-block-id="36a983a2e8c6d3592a9703995308a2d0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>The Gregory-Leibniz Series<br>
+(<a href="https://crypto.stanford.edu/pbc/notes/pi/glseries.html" target="_blank"><em>proof: @stanford.edu</em></a>)</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 400px; top: 620.648px;" data-block-id="e9e8cbd8cedab349a12d02468c720622" data-name="text-a839f5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" dir="ui">
+<p style="text-align:left"><em><span style="font-size:0.7em">cf. Packaging Demystified <span class="caption-text">(<a href="https://www.youtube.com/watch?v=ApDThpsr2Fw" target="_blank">source: PyCon2021 Bernát</a>)</span></span></em></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 202.825px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="c82e3c9805e0800c78bdca49435959a2">
+    <div class="sl-block-style" style="z-index: 14; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 14; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 3. DEMO PACKAGE</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 177.336px; top: 14.5px;" data-block-id="07561a14fd3ce11ba04d3a16fde0cd6c">
+    <div class="sl-block-style" style="z-index: 15; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="775.663967611336" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 15;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="775.663967611336" height="1" viewbox="0 0 775.663967611336 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="775.663967611336" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="775.663967611336" y2="0"></line></svg></div></div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="796dede00bc39ee6c0434bd1f1db1615">
+    <div class="sl-block-style" style="z-index: 16; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 16; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Developing a package</h2>
+</div></div>
+</div></section><section data-id="390f24a9f7bb98e75b2d37e406667873">
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 854px; left: 80.0004px; top: 153.74px;" data-name="text-ca01c1" data-block-id="279f671353c0e2ea454db34963f73046"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<p style="text-align:left">Create your Source Tree (folders, subfolders, files) with <a href="https://python-poetry.org/" target="_blank">Poetry</a></p>
+</div></div>
+
+
+<div class="sl-block" data-block-type="code" style="width: 844.696px; height: 420px; left: 80.0004px; top: 210px;" data-name="code-90450a" data-block-id="5aa7507ab0886295ac97c32ca724a07b"><div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content notranslate" data-highlight-theme="ir-black" data-code-frame="osx" style="z-index: 11;" data-code-wrap="true"><pre class="bash" style="font-size: 22px; line-height: 26px;"><code data-line-numbers="1,4">➜  poetry new approx_pi
+Created package approx_pi in approx_pi
+
+➜  tree approx_pi/
+approx_pi
+├── README.md
+├── approx_pi
+│   └── __init__.py
+├── pyproject.toml
+└── tests
+    └── __init__.py
+
+2 directories, 4 files</code></pre></div></div></div>
+<div class="sl-block" data-block-type="text" style="width: 202.825px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="03734e4f709f72d6cf4b0d4317ae42a8">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 3. DEMO PACKAGE</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 177.336px; top: 14.5px;" data-block-id="1f8d9426f7e6c99ad73aefd00d63ec24">
+    <div class="sl-block-style" style="z-index: 13; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="775.663967611336" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 13;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="775.663967611336" height="1" viewbox="0 0 775.663967611336 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="775.663967611336" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="775.663967611336" y2="0"></line></svg></div></div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="e0e4da1dc83ee99436d59ccca24f6e88">
+    <div class="sl-block-style" style="z-index: 14; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 14; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Developing a package</h2>
+</div></div>
+</div></section><section data-id="d29323e7555653229c358cf57d330540">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 855.207px; height: 420px; left: 80px; top: 210px;" data-name="code-90450a" data-block-id="0cd71c5ba329de68b01929200c772530"><div class="sl-block-style" style="z-index: 10; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content notranslate" data-highlight-theme="ir-black" data-code-frame="osx" style="z-index: 10;" data-code-wrap="true"><pre class="python" style="font-size: 20px; line-height: 24px;"><code data-line-numbers=""># pi_approx.py
+from math import pi
+
+def approximate_pi(iteration_count: int) -&gt; float:
+  sign, result = 1, 0.0
+  for at in range(iteration_count):
+    result += sign / (2 * at + 1)
+    sign += -1
+  return result * 4
+
+if __name__ == "__main__":
+  approx_1, approx_2 = approximate_pi(300), approximate_pi(301)
+  print(f"approx 300 {approx_1} with diff {approx_1 - pi}")
+  print(f"approx 301 {approx_2} with diff {approx_2 - pi}")
+  </code></pre></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 581.052px; left: 80px; top: 153.74px;" data-name="text-ca01c1" data-block-id="84fe8d14e75a392daed74395cf1425c9"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p style="text-align:left">Add functionalities to your main module</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 352.784px; left: 623.608px; top: 155.24px;" data-block-id="12d7950978dd07cf1cd62638f8d682fe" data-name="text-5bb08b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<pre style="text-align: left;"><em>pi_approx.py</em></pre>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 202.825px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="b32548b1f13ae23b300e69d8f3796ac2">
+    <div class="sl-block-style" style="z-index: 13; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 13; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 3. DEMO PACKAGE</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 177.336px; top: 14.5px;" data-block-id="88e4bac5c99c1f4ad576147cfc01e2e0">
+    <div class="sl-block-style" style="z-index: 14; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="775.663967611336" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 14;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="775.663967611336" height="1" viewbox="0 0 775.663967611336 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="775.663967611336" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="775.663967611336" y2="0"></line></svg></div></div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="f5a2bbf03d209d64981a5bd03abe0e63">
+    <div class="sl-block-style" style="z-index: 15; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 15; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Developing a package</h2>
+</div></div>
+</div></section><section data-id="ee47fe9a75980414d0911191a9c524c2">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 855.207px; height: 459.164px; left: 78.793px; top: 210px;" data-name="code-90450a" data-block-id="3a9d5218cfd21abb2b44e766c301fe98"><div class="sl-block-style" style="z-index: 10; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content notranslate" data-highlight-theme="ir-black" data-code-frame="osx" style="z-index: 10;" data-code-wrap="true"><pre class="bash" style="font-size: 20px; line-height: 24px;"><code data-line-numbers="1,2,7,8">➜ # Activating the virtual environment 
+➜  poetry shell
+Spawning shell within /home/patricme/.cache/pypoetry/virtualenvs/approx-pi-BE-Xuvxi-py3.9
+➜  . /home/patricme/.cache/pypoetry/virtualenvs/approx-pi-BE-Xuvxi-py3.9/bin/activate
+(approx-pi-py3.9)
+
+➜ # Installing dependencies
+➜  poetry install
+Creating virtualenv approx-pi-BE-Xuvxi-py3.9 in /home/patricme/.cache/pypoetry/virtualenvs
+Updating dependencies
+Resolving dependencies... (0.1s)
+
+Writing lock file
+
+</code></pre></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 841.781px; left: 80px; top: 153.74px;" data-name="text-ca01c1" data-block-id="00fea8aff7bac896bb1583cbf297e04c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p style="text-align:left">Create a local environment &amp; Install dependencies (<a href="https://python-poetry.org/" target="_blank">Poetry</a>)</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 202.825px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="ec9f9f7193b70155593a0c80cacbbd51">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 3. DEMO PACKAGE</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 177.336px; top: 14.5px;" data-block-id="6119e74f9c6a16e0d147bdc8f06daf6c">
+    <div class="sl-block-style" style="z-index: 13; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="775.663967611336" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 13;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="775.663967611336" height="1" viewbox="0 0 775.663967611336 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="775.663967611336" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="775.663967611336" y2="0"></line></svg></div></div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="805e477dc2c3faa9fc03c7732ac341ce">
+    <div class="sl-block-style" style="z-index: 14; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 14; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Developing a package</h2>
+</div></div>
+</div></section><section data-id="796acf82887dad7f06b51b74abf0233e">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 855.207px; height: 321.872px; left: 80px; top: 210px;" data-name="code-90450a" data-block-id="7e9e9cc2e675f7b8d6eb9a2841a0808b"><div class="sl-block-style" style="z-index: 10; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content notranslate" data-highlight-theme="ir-black" data-code-frame="osx" style="z-index: 10;" data-code-wrap="true"><pre class="bash" style="font-size: 20px; line-height: 24px;"><code data-line-numbers="1,2,6,7"># Running a python script
+(approx-pi-py3.9) ➜ python3 approx_pi/pi_approx.py
+approx 300 3.1382593295155914 with diff -0.0033333240742017267
+approx 301 3.1449149035588526 with diff 0.0033222499690594987
+
+# Running a python module
+(approx-pi-py3.9) ➜  approx_pi python3 -m approx_pi.pi_approx
+approx 300 3.1382593295155914 with diff -0.0033333240742017267
+approx 301 3.1449149035588526 with diff 0.0033222499690594987</code></pre></div></div></div>
+<div class="sl-block" data-block-type="text" style="width: 202.825px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="199b286067e7b51c20a32514d1ebc82c">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 11; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 3. DEMO PACKAGE</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 177.336px; top: 14.5px;" data-block-id="ba2f0ee72d09afe581d32097d72c6d00">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="775.663967611336" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 12;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="775.663967611336" height="1" viewbox="0 0 775.663967611336 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="775.663967611336" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="775.663967611336" y2="0"></line></svg></div></div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="a782964b42a65b0c4e4cf57cd3b28743">
+    <div class="sl-block-style" style="z-index: 13; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 13; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Developing a package</h2>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 841.781px; left: 80px; top: 153.74px;" data-name="text-ca01c1" data-block-id="a9e7d86ec10c3668f04dc8c515b1c835"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<p style="text-align:left">Running your Python package</p>
+</div></div></section><section data-id="c1c98d8e8cdc9dc01d32ee964f297576"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 60.7404px; height: auto;" data-name="text-c29943" data-block-id="afe70af5d8b613fa182f67adb6aa1a74">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Adding a dependency from PyPi</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 900.42px; height: 234.121px; left: 19.79px; top: 140px;" data-name="code-90450a" data-block-id="4261b87f2bd203c9f35a16e69e4339cc"><div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content notranslate" data-highlight-theme="ir-black" data-code-frame="osx" style="z-index: 11;" data-code-wrap="true"><pre class="bash" style="font-size: 20px; line-height: 24px;"><code data-line-numbers="1">(approx-pi-py3.9) ➜  poetry add cowsay
+Using version ^5.0 for cowsay
+Updating dependencies
+Resolving dependencies... (9.2s)
+Writing lock file
+Package operations: 1 install, 0 updates, 0 removals
+  • Installing cowsay (5.0)</code></pre></div></div></div>
+<div class="sl-block" data-block-type="code" style="width: 900.42px; height: 300.459px; left: 19.79px; top: 399.541px;" data-block-id="4d8fba73bff26aa1ac4c683bfbeb2a5a" data-name="code-6132d4"><div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content notranslate" data-highlight-theme="ir-black" data-code-frame="osx" style="z-index: 12;" data-code-wrap="true"><pre class="python" style="font-size: 20px; line-height: 24px;"><code data-line-numbers="1-4,8"># pi_approx.py
+...
+
+if __name__ == "__main__":
+    approx_1, approx_2 = approximate_pi(300), approximate_pi(301)
+    print(f"approx 300 {approx_1} with diff {approx_1 - pi}")
+    print(f"approx 301 {approx_2} with diff {approx_2 - pi}")
+    cowsay.cow(f"The difference between \nthe approximations is \n{'%.2E' % Decimal(approx_1-approx_2)}")</code></pre></div></div></div>
+<div class="sl-block" data-block-type="text" style="width: 202.825px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="ff08150dffc1517c38ae2c9236aeb162">
+    <div class="sl-block-style" style="z-index: 13; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 13; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 3. DEMO PACKAGE</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 177.336px; top: 14.5px;" data-block-id="40ec386f8935dd439bdb747fc3bb59ae">
+    <div class="sl-block-style" style="z-index: 14; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="775.663967611336" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 14;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="775.663967611336" height="1" viewbox="0 0 775.663967611336 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="775.663967611336" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="775.663967611336" y2="0"></line></svg></div></div>
+</div>
+<div class="sl-block" data-block-type="image" style="width: 322.455px; height: 155.996px; left: 611.545px; top: 130.002px; min-width: 1px; min-height: 1px;" data-name="image-9f7eb5" data-block-id="54b5cfabdb04d1d9328e31efb7aef248"><div class="sl-block-style" style="z-index: 15; filter: drop-shadow(rgb(111, 168, 220) 0px 0px 18px) opacity(100%);"><div class="sl-block-content" style="z-index: 15;"><img class="" data-natural-width="339" data-natural-height="164" data-lazy-loaded="" data-src="packaging-python/6dd10df9361be86d487721578231f07f.png"></div></div></div></section><section data-id="bcc05b1e2b74b4d719abb4cc63e349a9">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 817.936px; height: 490px; left: 82.865px; top: 210px;" data-name="code-e039ff" data-block-id="10d5bcda5df2809844ae79b6124f1de8"><div class="sl-block-style" style="z-index: 10; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content notranslate" data-highlight-theme="ir-black" data-code-frame="osx" style="z-index: 10;" data-code-wrap="true"><pre class="none" style="font-size: 22px; line-height: 26px;"><code data-line-numbers="12"># pyproject.toml
+[tool.poetry]
+name = "approx-pi"
+version = "0.1.0"
+description = ""
+authors = ["Patrick Merlot &lt;patrick.merlot@gmail.com&gt;"]
+readme = "README.md"
+packages = [{include = "approx_pi"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+cowsay = "^5.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"</code></pre></div></div></div>
+<div class="sl-block" data-block-type="text" style="width: 202.825px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="2722ba3b5ce6dd57eef623b180ccdf99">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 11; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 3. DEMO PACKAGE</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 177.336px; top: 14.5px;" data-block-id="b1b3e0f553f6c39f2cc79e8a6d4b7cab">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="775.663967611336" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 12;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="775.663967611336" height="1" viewbox="0 0 775.663967611336 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="775.663967611336" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="775.663967611336" y2="0"></line></svg></div></div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="bd39b07990772badce4940e9e0274523">
+    <div class="sl-block-style" style="z-index: 13; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 13; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Developing a package</h2>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 841.781px; left: 80px; top: 153.74px;" data-name="text-ca01c1" data-block-id="25a1e11c18f05411e54d1d0a19f8548e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<p style="text-align:left">Updated config file after adding the new dependency (cowsay)</p>
+</div></div></section><section data-id="10e382f170283e804228e34e7dbdb058">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 841.781px; height: 472.366px; left: 80px; top: 210px;" data-name="code-90450a" data-block-id="8fcbf29376f952f18337c2fde8eed34e"><div class="sl-block-style" style="z-index: 10; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content notranslate" data-highlight-theme="ir-black" data-code-frame="osx" style="z-index: 10;" data-code-wrap="true"><pre class="bash" style="font-size: 20px; line-height: 24px;"><code data-line-numbers="1,4-17">(approx-pi-py3.9) ➜ python3 -m approx_pi.pi_approx
+approx 300 3.1382593295155914 with diff -0.0033333240742017267
+approx 301 3.1449149035588526 with diff 0.0033222499690594987
+  ______________________
+ /                      \
+| The difference between |
+| the approximations is  |
+| -6.66E-03              |
+ \                      /
+  ======================
+                      \
+                       \
+                         ^__^
+                         (oo)\_______
+                         (__)\       )\/\
+                             ||----w |
+                             ||     ||</code></pre></div></div></div>
+<div class="sl-block" data-block-type="text" style="width: 202.825px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="afb5c956ea5b8d4d8bc7d2edfda09cd1">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 11; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 3. DEMO PACKAGE</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 177.336px; top: 14.5px;" data-block-id="8deddfa62516fcb9a2b71dd2dbf3eb2b">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="775.663967611336" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 12;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="775.663967611336" height="1" viewbox="0 0 775.663967611336 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="775.663967611336" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="775.663967611336" y2="0"></line></svg></div></div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 841.781px; left: 80px; top: 153.74px;" data-name="text-ca01c1" data-block-id="7a48ad4c3319a423958709b1c606adcb"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<p style="text-align:left">Running your Python pacage</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="d9a7ce04420df4f41fa49c9f6d248c2b">
+    <div class="sl-block-style" style="z-index: 14; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 14; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Developing a package</h2>
+</div></div>
+</div></section></section><section class="stack" data-id="5028a67923da062172250f0afd69ce82"><section data-id="50f2a5ec408873e61a357ecf3fd7f72f"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="8042104a28b86b9019e1715c1b30b7f8">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Build a distribution package</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 275.879px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="958d4e4a82e5412b8ed562352a9e9818">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 4. BUILD DISTRIBTUION PACKAGE </pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 299.513px; top: 14.5px;" data-block-id="066cbecea85e65c509bf4c00728a9b33">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="653.4867296446243" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="653.4867296446243" height="1" viewbox="0 0 653.4867296446243 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="653.4867296446243" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="653.4867296446243" y2="0"></line></svg></div></div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="image" style="width: 733.833px; height: 518px; left: 103.084px; top: 140px; min-width: 1px; min-height: 1px;" data-name="image-1a2084" data-block-id="2c13427dadb9e76078746b9d9b8243e4"><div class="sl-block-style" style="z-index: 13; opacity: 0.32;"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="833" data-natural-height="588" data-lazy-loaded="" data-src="packaging-python/1d35520e7f059a26a7427403e2ef43cc.png"></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 107.413px; top: 661px;" data-name="text-aca9b3" data-block-id="6e5a737e9115760267d02acba465eb03"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<p style="text-align: left;"><em><span style="font-size:0.7em"><span class="caption-text">The Python package cycle (<a href="https://py-pkgs.org/04-package-structure.html" target="_blank">source: Python Packages</a>)</span></span></em></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 298.316px; height: 518px; left: 103.084px; top: 140px; min-width: 1px; min-height: 1px;" data-block-id="6543a3c08c83ad08d6514dc8427c4918" data-name="image-5c1837"><div class="sl-block-content" style="z-index: 15;"><img class="" data-natural-width="833" data-natural-height="588" data-lazy-loaded="" data-crop-x="0" data-crop-y="0" data-crop-width="0.406518" data-crop-height="1" style="left: 0px; top: 0px; width: 734px; height: 518px;" data-src="packaging-python/1d35520e7f059a26a7427403e2ef43cc.png"></div></div></section><section data-id="ef0120800a7f0ef6a135f53660f54f19"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 60.7404px; height: auto;" data-name="text-c29943" data-block-id="ea64f58066fc5bc076670deeb8f15fba">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Build the package's artifacts</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 877.135px; height: 254.401px; left: 31.4325px; top: 210px;" data-name="code-e039ff" data-block-id="e749199231ed62158a128eb6bcb001d5"><div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content notranslate" data-highlight-theme="ir-black" data-code-frame="osx" style="z-index: 11;" data-code-wrap="true"><pre class="none" style="font-size: 22px; line-height: 26px;"><code data-line-numbers="1,3,5">(approx-pi-py3.9) ➜ poetry build
+Building approx-pi (0.1.0)
+  - Building sdist
+  - Built approx_pi-0.1.0.tar.gz
+  - Building wheel
+  - Built approx_pi-0.1.0-py3-none-any.whl</code></pre></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 885.92px; left: 6px; top: 132px;" data-name="text-588828" data-block-id="db5dfb823dfac8aed6bbb0ddf04bf78c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>the source distribution (sdist) &amp; the built distribution (wheels)</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 275.879px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="2a2b81352810cb4043346e197b634ab6">
+    <div class="sl-block-style" style="z-index: 14; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 14; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 4. BUILD DISTRIBTUION PACKAGE </pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 299.513px; top: 14.5px;" data-block-id="e329626ef26d98813fd282f6c3fbfddb">
+    <div class="sl-block-style" style="z-index: 13; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="653.4867296446243" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 13;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="653.4867296446243" height="1" viewbox="0 0 653.4867296446243 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="653.4867296446243" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="653.4867296446243" y2="0"></line></svg></div></div>
+</div></section></section><section class="stack" data-id="804a36d503f5457f1a70b02e9460cb00"><section data-id="a42f7311e9b1a2422f4d19ec3bd0cc5c"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="2051dbcdba427d1d01e80b65d3c21e71">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Publishing your Python Package to PyPI</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 275.879px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="81832cdf8b6b63a8220c4ed2d158c681">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 5. PUBLISH DISTRIBTUION PACKAGE </pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 299.513px; top: 14.5px;" data-block-id="612a35e35bd65b0656f0f972cd41e6d6">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="653.4867296446243" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="653.4867296446243" height="1" viewbox="0 0 653.4867296446243 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="653.4867296446243" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="653.4867296446243" y2="0"></line></svg></div></div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="image" style="width: 733.833px; height: 518px; left: 103.084px; top: 140px; min-width: 1px; min-height: 1px;" data-name="image-1a2084" data-block-id="e20b1cbe929c2b112f538774e65e9a7c"><div class="sl-block-style" style="z-index: 13; opacity: 0.32;"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="833" data-natural-height="588" data-lazy-loaded="" data-src="packaging-python/1d35520e7f059a26a7427403e2ef43cc.png"></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 107.413px; top: 661px;" data-name="text-aca9b3" data-block-id="13a665a15a494d771cd041a1b9517306"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<p style="text-align: left;"><em><span style="font-size:0.7em"><span class="caption-text">The Python package cycle (<a href="https://py-pkgs.org/04-package-structure.html" target="_blank">source: Python Packages</a>)</span></span></em></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 733.833px; height: 178.968px; left: 103.084px; top: 140px; min-width: 1px; min-height: 1px;" data-block-id="dcca48e07f62eb223fd26573bd27130a" data-name="image-31af36"><div class="sl-block-content" style="z-index: 15;"><img class="" data-natural-width="833" data-natural-height="588" data-lazy-loaded="" data-crop-x="0" data-crop-y="0" data-crop-width="1" data-crop-height="0.345499" style="left: 0px; top: 0px; width: 734px; height: 518px;" data-src="packaging-python/1d35520e7f059a26a7427403e2ef43cc.png"></div></div></section><section data-id="ca297102eedd19c7159e0d2148b9e366"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 60.7404px; height: auto;" data-name="text-c29943" data-block-id="2077b6b158b10e9387a90a1e3325bd88">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Publishing your Python Package to PyPI</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 505.682px; left: 10.9247px; top: 172px;" data-name="text-588828" data-block-id="2bf59db87c5dad6036290624c35917b4"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p style="text-align:left">PyPI (<a href="https://pypi.org/" target="_blank">pypi.org</a>) is the default publishing target for Poetry.</p>
+
+<p style="text-align:left"> </p>
+
+<p style="text-align:left">In order to publish a package to PyPI, you will need to create an account. Go to the <a href="https://pypi.org/account/register/" target="_blank">official registration page</a> in your web browser.</p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 397.901px; height: 518px; left: 536.099px; top: 172px; min-width: 1px; min-height: 1px;" data-name="image-19fc34" data-block-id="dd8d5bf707eecd4ced484a83e003aba0"><div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="1037" data-natural-height="1350" data-lazy-loaded="" data-src="packaging-python/461231229bca7ade5635e721ebe147d8.png"></div></div></div>
+<div class="sl-block" data-block-type="text" style="width: 275.879px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="863fac9e6c910a23d5dd2a215834b981">
+    <div class="sl-block-style" style="z-index: 14; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 14; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 5. PUBLISH DISTRIBTUION PACKAGE </pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 299.513px; top: 14.5px;" data-block-id="7e6f5de91106f766cc94cf2f2cd1394c">
+    <div class="sl-block-style" style="z-index: 13; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="653.4867296446243" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 13;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="653.4867296446243" height="1" viewbox="0 0 653.4867296446243 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="653.4867296446243" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="653.4867296446243" y2="0"></line></svg></div></div>
+</div></section><section data-id="444e2f002b432e1190e7e4265fcd0272"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 60.7404px; height: auto;" data-name="text-c29943" data-block-id="76a556a8988d74377d8f6ea42a0ae94e">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Publishing your Python Package to PyPI</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 923.075px; left: 10.9247px; top: 172px;" data-name="text-588828" data-block-id="4af9430a7aaa662010567b3b0de99f97"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p style="text-align:left">Token authentication is the recommended way to use your <a href="https://pypi.org/manage/account/" target="_blank">PyPI account</a> in the command line.</p>
+
+<p style="text-align:left">You can use a single, automatically generated token instead of a username and password.</p>
+
+<p style="text-align:left"><a href="https://www.digitalocean.com/community/tutorials/how-to-publish-python-packages-to-pypi-using-poetry-on-ubuntu-22-04#step-2-enabling-token-authentication-for-pypi" target="_blank">Enabling Token Authentication for PyPI</a>.</p>
+
+<p style="text-align:left"> </p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 674.033px; height: 292px; left: 142.984px; top: 388.555px; min-width: 1px; min-height: 1px;" data-name="image-f5f9ae" data-block-id="9dd31ed24297efcddf56d213a3f9b806"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="2260" data-natural-height="1052" data-crop-x="0" data-crop-y="0.04" data-crop-width="1" data-crop-height="0.930667" style="left: 0px; top: -13px; width: 674px; height: 314px;" data-lazy-loaded="" data-src="packaging-python/74c11c2d644f2f1b948b780b146be933.png"></div></div>
+<div class="sl-block" data-block-type="text" style="width: 275.879px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="a6f71e5daf4eab2a74673562c374cc99">
+    <div class="sl-block-style" style="z-index: 14; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 14; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 5. PUBLISH DISTRIBTUION PACKAGE </pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 299.513px; top: 14.5px;" data-block-id="b5c251747aac0f84ad66bda590ead885">
+    <div class="sl-block-style" style="z-index: 13; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="653.4867296446243" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 13;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="653.4867296446243" height="1" viewbox="0 0 653.4867296446243 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="653.4867296446243" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="653.4867296446243" y2="0"></line></svg></div></div>
+</div></section><section data-id="29cdcda70accffa7a6e2708dd962c52c"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 60.7404px; height: auto;" data-name="text-c29943" data-block-id="3a8c13a6d83080655a242ea6fbcf70e3">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Publishing your Python Package to PyPI</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 923.075px; left: 10.9247px; top: 172px;" data-name="text-588828" data-block-id="6281fc8d3d822f2b6d9a54be0cfe95a1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p style="text-align:left">Add your API token to Poetry with this command</p>
+
+<p style="text-align:left"> </p>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 877.135px; height: 127.401px; left: 31.4325px; top: 230px;" data-name="code-e039ff" data-block-id="99d7ff34086da933e3350f13316b9591"><div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content notranslate" data-highlight-theme="ir-black" data-code-frame="osx" style="z-index: 12;" data-code-wrap="true"><pre class="none" style="font-size: 22px; line-height: 26px;"><code data-line-numbers="1">➜ poetry config pypi-token.pypi &lt;your-api-token&gt;
+Using a plaintext file to store credentials</code></pre></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 923.075px; left: 6px; top: 439px;" data-block-id="41c85937ad51490c45b61e972b4b1218" data-name="text-6cffa4"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<p style="text-align:left">Publishing your Python Package to PyPI</p>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 877.135px; height: 208px; left: 31.4325px; top: 492px;" data-block-id="01ecebe0d33e0d32c1e4dc31760fddbb" data-name="code-a23a8e"><div class="sl-block-style" style="z-index: 14; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content notranslate" data-highlight-theme="ir-black" data-code-frame="osx" style="z-index: 14;" data-code-wrap="true"><pre class="none" style="font-size: 22px; line-height: 26px;"><code data-line-numbers="">(approx-pi-py3.9) ➜  poetry publish
+
+Publishing approx-pi (0.1.0) to PyPI
+ - Uploading approx_pi-0.1.0-py3-none-any.whl 100%
+ - Uploading approx_pi-0.1.0.tar.gz 100%</code></pre></div></div></div>
+<div class="sl-block" data-block-type="text" style="width: 275.879px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="6196d3591b7b2f29341363448bead537">
+    <div class="sl-block-style" style="z-index: 16; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 16; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 5. PUBLISH DISTRIBTUION PACKAGE </pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 299.513px; top: 14.5px;" data-block-id="60bc4fa23dc96be2b26035956876a122">
+    <div class="sl-block-style" style="z-index: 15; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="653.4867296446243" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 15;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="653.4867296446243" height="1" viewbox="0 0 653.4867296446243 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="653.4867296446243" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="653.4867296446243" y2="0"></line></svg></div></div>
+</div></section><section data-id="a8074451f79ed415c6ea235d34b8c6f7"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 60.7404px; height: auto;" data-name="text-c29943" data-block-id="324987b3d6c12010a8b310abad0d42b9">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Publishing your Python Package to PyPI</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 923.075px; left: 10.9247px; top: 172px;" data-name="text-588828" data-block-id="5eb4ed1c6d0296854bcf71ba648b12ea"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p style="text-align:left">Check your published package in <a href="https://pypi.org/manage/projects/" target="_blank">your PyPI projects</a>, in the browser.</p>
+
+<p style="text-align:left"> </p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 806.4px; height: 235.279px; left: 80px; top: 272.443px; min-width: 1px; min-height: 1px;" data-name="image-a7df17" data-block-id="f6677d0c783483d12a7e0c0285c31d57"><a class="sl-block-content" style="z-index: 12;" href="http://pypi.org/manage/projects/" target="_blank"><img class="" data-natural-width="1275" data-natural-height="372" data-lazy-loaded="" data-src="packaging-python/d2e68912df73df76f0a778ce8a160d8f.png"></a></div>
+<div class="sl-block" data-block-type="text" style="width: 275.879px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="d9ab40e792465ef8fea4503e0a482972">
+    <div class="sl-block-style" style="z-index: 14; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 14; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 5. PUBLISH DISTRIBTUION PACKAGE </pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 299.513px; top: 14.5px;" data-block-id="8b774554039a5d7303b0ebdb23228b2c">
+    <div class="sl-block-style" style="z-index: 13; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="653.4867296446243" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 13;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="653.4867296446243" height="1" viewbox="0 0 653.4867296446243 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="653.4867296446243" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="653.4867296446243" y2="0"></line></svg></div></div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 923.075px; left: 6px; top: 551.128px;" data-block-id="8299df5a57099a08a7c5365ab810e692" data-name="text-ede4e1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;">
+<p style="text-align:left">Your package is available for everyone to use via:<br>
+<a href="https://pypi.org/project/pip/" target="_blank">Pip</a>, <a href="https://python-poetry.org/" target="_blank">Poetry</a>, <a href="https://docs.conda.io" target="_blank">Conda</a>, <a href="https://pipenv.pypa.io" target="_blank">Pipenv</a>, ...</p>
+</div></div></section></section><section class="stack" data-id="50179de937deb5b77737127c25589713"><section data-id="0306cb0f3494681636f32794196ee66e"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="a1fb00b4189d01a00895dac5248d910d">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Installing a Python Package from PyPI</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 275.879px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="550bb00e3fd5de13a9f554951c32eaad">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 6. INSTALLING A PACKAGE </pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 240px; top: 14.5px;" data-block-id="682a296da7904c5ea10f5f1837bdea90">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="713.0001282051281" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="713.0001282051281" height="1" viewbox="0 0 713.0001282051281 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="713.0001282051281" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="713.0001282051281" y2="0"></line></svg></div></div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="image" style="width: 733.833px; height: 518px; left: 103.084px; top: 140px; min-width: 1px; min-height: 1px;" data-name="image-1a2084" data-block-id="9c65b49fcb717d67ca1288bc1e2b2e4e"><div class="sl-block-style" style="z-index: 13; opacity: 0.32;"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="833" data-natural-height="588" data-lazy-loaded="" data-src="packaging-python/1d35520e7f059a26a7427403e2ef43cc.png"></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 107.413px; top: 661px;" data-name="text-aca9b3" data-block-id="88dbbb35c7047e2a607cc1c6240f3b73"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<p style="text-align: left;"><em><span style="font-size:0.7em"><span class="caption-text">The Python package cycle (<a href="https://py-pkgs.org/04-package-structure.html" target="_blank">source: Python Packages</a>)</span></span></em></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 249.227px; height: 518px; left: 587.801px; top: 140px; min-width: 1px; min-height: 1px;" data-block-id="6637522266588d5f9151070f83c1606d" data-name="image-321626"><div class="sl-block-content" style="z-index: 15;"><img class="" data-natural-width="833" data-natural-height="588" data-lazy-loaded="" data-crop-x="0.660377" data-crop-y="0" data-crop-width="0.339623" data-crop-height="1" style="left: -485px; top: 0px; width: 734px; height: 518px;" data-src="packaging-python/1d35520e7f059a26a7427403e2ef43cc.png"></div></div></section><section data-id="9a0cdfe06f776021639cdbb6e53a02c4"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 60.7404px; height: auto;" data-name="text-c29943" data-block-id="758f85541bdaac09fed3806c542d5f43">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Adding a dependency from PyPi</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 900.42px; height: 234.121px; left: 19.79px; top: 140px;" data-name="code-90450a" data-block-id="b8dd0a92d771dcd369e87312693cca87"><div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content notranslate" data-highlight-theme="ir-black" data-code-frame="osx" style="z-index: 11;" data-code-wrap="true"><pre class="bash" style="font-size: 20px; line-height: 24px;"><code data-line-numbers="1">➜  poetry add cowsay
+Using version ^5.0 for cowsay
+Updating dependencies
+Resolving dependencies... (9.2s)
+Writing lock file
+Package operations: 1 install, 0 updates, 0 removals
+  • Installing cowsay (5.0)</code></pre></div></div></div>
+<div class="sl-block" data-block-type="code" style="width: 900.42px; height: 115.304px; left: 19.79px; top: 432.348px;" data-name="code-6132d4" data-block-id="5c6c7e842717a6ec43cbb9fed2f9fe0b"><div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content notranslate" data-highlight-theme="ir-black" data-code-frame="osx" style="z-index: 12;" data-code-wrap="true"><pre class="python" style="font-size: 20px; line-height: 24px;"><code data-line-numbers="1-4,8">➜  poetry add &lt;any-python-package-available-on-pypi&gt;</code></pre></div></div></div>
+
+<div class="sl-block" data-block-type="image" style="width: 322.455px; height: 155.996px; left: 611.545px; top: 130.002px; min-width: 1px; min-height: 1px;" data-name="image-9f7eb5" data-block-id="0b297e4ae1f8b157cd18bed174ab4a4b"><div class="sl-block-style" style="z-index: 13; filter: drop-shadow(rgb(111, 168, 220) 0px 0px 18px) opacity(100%);"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="339" data-natural-height="164" data-lazy-loaded="" data-src="packaging-python/6dd10df9361be86d487721578231f07f.png"></div></div></div>
+<div class="sl-block" data-block-type="text" style="width: 275.879px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="63dc612e174f8ad3d86888f05767bfe8">
+    <div class="sl-block-style" style="z-index: 15; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 15; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 6. INSTALLING A PACKAGE </pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 240px; top: 14.5px;" data-block-id="845f71f62edf648779ec92e94134f6da">
+    <div class="sl-block-style" style="z-index: 14; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="713.0001282051281" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 14;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="713.0001282051281" height="1" viewbox="0 0 713.0001282051281 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="713.0001282051281" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="713.0001282051281" y2="0"></line></svg></div></div>
+</div></section></section><section class="stack" data-id="0dc70405880e7e130611bc4bab09e399"><section data-id="3e593ede3d426102c622527c2e136668"><div class="sl-block" data-block-type="text" style="width: 1011.94px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="4896e2a26dcc969ed97a9d7c13184e1b">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Version control your code on (public) repo.</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 275.879px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="36d2221e413656702d7162e330711f21">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 7. VERSION CONTROL </pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 198.435px; top: 14.5px;" data-block-id="5820dda146e81027522aa77202ad5040">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="754.565580296896" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="754.565580296896" height="1" viewbox="0 0 754.565580296896 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="754.565580296896" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="754.565580296896" y2="0"></line></svg></div></div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="image" style="width: 733.833px; height: 518px; left: 103.084px; top: 140px; min-width: 1px; min-height: 1px;" data-name="image-1a2084" data-block-id="6416acb719e0d699e2f3ab3d7238f443"><div class="sl-block-style" style="z-index: 13; opacity: 0.32;"><div class="sl-block-content" style="z-index: 13;"><img class="" data-natural-width="833" data-natural-height="588" data-lazy-loaded="" data-src="packaging-python/1d35520e7f059a26a7427403e2ef43cc.png"></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 107.413px; top: 661px;" data-name="text-aca9b3" data-block-id="b91a868feafbe0795af662defb40f506"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<p style="text-align: left;"><em><span style="font-size:0.7em"><span class="caption-text">The Python package cycle (<a href="https://py-pkgs.org/04-package-structure.html" target="_blank">source: Python Packages</a>)</span></span></em></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 733.834px; height: 212.998px; left: 103.084px; top: 445.002px; min-width: 1px; min-height: 1px;" data-block-id="0d47efc0d0f7863f2545da4c571b56d8" data-name="image-267b3b"><div class="sl-block-content" style="z-index: 15;"><img class="" data-natural-width="833" data-natural-height="588" data-lazy-loaded="" data-crop-x="0" data-crop-y="0.588808" data-crop-width="1" data-crop-height="0.411192" style="left: 0px; top: -305px; width: 734px; height: 518px;" data-src="packaging-python/1d35520e7f059a26a7427403e2ef43cc.png"></div></div></section><section data-id="61186a897bcb300e9848e67c6bdafcd2"><div class="sl-block" data-block-type="text" style="width: 1011.94px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="0abb16baa27ff6575e206b5fa17af19e">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Version control your code on (public) repo.</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 275.879px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="f9a466ca14eb9c92fca5527b1938e43c">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 7. VERSION CONTROL </pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 198.435px; top: 14.5px;" data-block-id="99ae9a92e1f51e7ab2a46e1ba9eba4d8">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="754.565580296896" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="754.565580296896" height="1" viewbox="0 0 754.565580296896 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="754.565580296896" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="754.565580296896" y2="0"></line></svg></div></div>
+</div>
+
+
+
+
+
+<div class="sl-block" data-block-type="image" style="width: 655.516px; height: 518px; left: 152.242px; top: 161px; min-width: 1px; min-height: 1px;" data-name="image-16c700" data-block-id="583f30041c87cdd8ea0889dfc0114f70"><div class="sl-block-style" style="z-index: 13; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><a class="sl-block-content" style="z-index: 13;" href="https://github.com/great-expectations/great_expectations/issues?q=is%3Aissue+is%3Aopen" target="_blank"><img class="" data-natural-width="920" data-natural-height="727" data-lazy-loaded="" data-src="packaging-python/7f8c5c273e94e95824874a77a7f14c54.png"></a></div></div></section><section data-id="2a26522e13cac9140170075c685d43e0"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="baacf3ba97688da35641aa3916cdb2ee">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Version Control with Git</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 881.565px; height: 361.381px; left: 44.332px; top: 319.001px;" data-name="code-c4f622" data-block-id="c117892e76454e5250f6b2b8be6524a8"><div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content notranslate" data-highlight-theme="ir-black" data-code-frame="osx" style="z-index: 11;"><pre class="bash" style="font-size: 16px; line-height: 19px;"><code data-line-numbers=""># Initialize your project (ONCE!)
+git init
+
+# Tell git where is the main repository (Github? Bitbucket? GitLab? ...)
+# (ONCE!)
+git remote add github https://github.com/Patechoc/approx_pi.git
+
+# Specify the files that you want to add to the next "push" to the main repository
+git add pyproject.toml approx_pi.py/ README.md
+
+# Give a description to the changes you want to push
+git commit -a -m "Minimum file structure for our python package"
+
+# Push the changes that are committed to the main repository
+git push </code></pre></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 743.852px; left: 19.8552px; top: 150px;" data-name="text-ca01c1" data-block-id="0c446efc98b4ee15004a581ca4fb7d0f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<ul>
+	<li>Tracking code changes (backup, undo, feature dev.)</li>
+	<li>Coding collaboration (simplified merge, branching)</li>
+	<li>Get started: <a href="https://www.w3schools.com/git/" target="_blank"><em>www.w3schools.com/git/</em></a>
+</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 275.879px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="9f4216fd2fdeddae8cda11d43aae9756">
+    <div class="sl-block-style" style="z-index: 14; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 14; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 7. VERSION CONTROL </pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 198.435px; top: 14.5px;" data-block-id="fda454a777bea91913d28490986e7f90">
+    <div class="sl-block-style" style="z-index: 13; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="754.565580296896" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 13;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="754.565580296896" height="1" viewbox="0 0 754.565580296896 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="754.565580296896" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="754.565580296896" y2="0"></line></svg></div></div>
+</div></section><section data-id="a413cb36e4a97aa6c89d6f199fad159d"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="eecc16d574772b7f3b90e13421e6836a">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Version Control with Git</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 307.535px; left: 8px; top: 532.489px;" data-name="text-aca9b3" data-block-id="c88e0d1b270c577482c4bbbe7b39da07"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;" dir="ui">
+<p style="text-align:left"><span style="font-size:0.7em">Create useful .gitignore files for your project</span><em><span style="font-size:0.7em"> <span class="caption-text">(<a href="https://www.toptal.com/developers/gitignore" target="_blank">source: Toptal</a>)</span></span></em></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 460.736px; height: 321px; left: 8px; top: 200.489px; min-width: 1px; min-height: 1px;" data-name="image-908605" data-block-id="53accb9253600795c2b78fc2677de8cc"><div class="sl-block-content" style="z-index: 12;"><img class="" data-natural-width="821" data-natural-height="572" data-lazy-loaded="" data-src="packaging-python/d5b77010845f46d9347cb350af3a6551.png"></div></div>
+<div class="sl-block" data-block-type="code" style="width: 422.672px; height: 545.278px; left: 510.895px; top: 124.19px;" data-name="code-c4f622" data-block-id="d8c7d9be3772c2fead5ec36eb058a0a6"><div class="sl-block-style" style="z-index: 13; filter: drop-shadow(rgb(255, 255, 255) 0px 0px 5px) opacity(100%);"><div class="sl-block-content notranslate" data-highlight-theme="ir-black" data-code-frame="osx" style="z-index: 13;"><pre class="ini" style="font-size: 13px; line-height: 16px;"><code data-line-numbers=""># Created by https://www.toptal.com/developers/gitignore/api/python
+# Edit at https://www.toptal.com/developers/gitignore?templates=python
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+#   For a library or package, you might want to ignore these files since the code is
+#   intended to run in multiple environments; otherwise, check them in:
+# .python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# poetry
+#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
+#   This is especially recommended for binary packages to ensure reproducibility, and is more
+#   commonly ignored for libraries.
+#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
+#poetry.lock
+
+# pdm
+#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
+#pdm.lock
+#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
+#   in version control.
+#   https://pdm.fming.dev/#use-with-ide
+.pdm.toml
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# PyCharm
+#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
+#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
+#  and can be added to the global gitignore or merged into this file.  For a more nuclear
+#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
+#.idea/
+
+### Python Patch ###
+# Poetry local configuration file - https://python-poetry.org/docs/configuration/#local-configuration
+poetry.toml
+
+# ruff
+.ruff_cache/
+
+# End of https://www.toptal.com/developers/gitignore/api/python
+n</code></pre></div></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 26.8954px; height: 35.8396px; left: 475px; top: 360.989px;" data-name="shape-b7c388" data-block-id="01d92af9491584c4957a4fc16a327ee7"><div class="sl-block-content" data-shape-type="arrow-right" data-shape-fill-color="rgb(74, 134, 232)" data-shape-stretch="true" style="z-index: 14;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 27 36"><polygon points="0,10.751879999999998 13.4477,10.751879999999998 13.4477,0 26.8954,17.9198 13.4477,35.8396 13.4477,25.087719999999997 0,25.087719999999997" class="shape-element" fill="rgb(74, 134, 232)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="text" style="width: 275.879px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="72809ba6ddb0eef867d76c249da59fb5">
+    <div class="sl-block-style" style="z-index: 16; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 16; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 7. VERSION CONTROL </pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 198.435px; top: 14.5px;" data-block-id="3385790d23bc84b11bc93e195b4563a1">
+    <div class="sl-block-style" style="z-index: 15; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="754.565580296896" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 15;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="754.565580296896" height="1" viewbox="0 0 754.565580296896 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="754.565580296896" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="754.565580296896" y2="0"></line></svg></div></div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 757.535px; left: 8px; top: 150.489px;" data-name="text-ca01c1" data-block-id="4f8c6a0fd144bb4f3e2c5394622ccf09"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17;">
+<p style="text-align: left;">Don't save everything!</p>
+</div></div></section></section><section data-id="1d39ba18044fefab71512bddd2a3162f"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="d32cbaeb85b64c2c870cf2cbcfc05c1a">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Testing</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 215.421px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="deea241412dbd5785848102eae66d49f">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 8. TESTING</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 144.588px; top: 14.5px;" data-block-id="3147128fd726ba3932a5ba9ba4180ad9">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="808.412505623032" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="808.412505623032" height="1" viewbox="0 0 808.412505623032 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="808.412505623032" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="808.412505623032" y2="0"></line></svg></div></div>
+</div>
+
+
+
+<div class="sl-block" data-block-type="image" style="width: 730.14px; height: 410.704px; left: 104.93px; top: 149.296px; min-width: 1px; min-height: 1px;" data-name="image-7bcbf6" data-block-id="f3632d7b25705dcc4c207897cb83ee6a"><a class="sl-block-content" style="z-index: 13;" href="http://realpython.com/python-testing/" target="_blank"><img class="" data-natural-width="1920" data-natural-height="1080" data-lazy-loaded="" data-src="packaging-python/39a4f603f2cdaf01475e833ca6f31d86.png"></a></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 775.07px; left: 104.93px; top: 570.266px;" data-name="text-aca9b3" data-block-id="def7805ecbb1b948412fd1a710186ed0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;" dir="ui">
+<p style="text-align:left"><em><span style="font-size:0.7em">Getting started with testing in Python <span class="caption-text">(<a href="https://realpython.com/python-testing/" target="_blank">source: Real Python</a>)</span></span></em></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 138.947px; height: 138.947px; left: 650.527px; top: 27.5px; min-width: 1px; min-height: 1px;" data-name="image-a5aa09" data-block-id="0c8dd2c69b6ec25a4132f7337e075de2"><a class="sl-block-content" style="z-index: 15;" href="https://docs.pytest.org" target="_blank"><img class="" data-natural-width="225" data-natural-height="225" data-lazy-loaded="" data-src="packaging-python/cedcf22aaad1fbda3e36d9b4107b1c1f.png"></a></div>
+<div class="sl-block" data-block-type="image" style="width: 91.0553px; height: 79.6734px; left: 808.817px; top: 109.459px; min-width: 1px; min-height: 1px;" data-name="image-6273ad" data-block-id="0449671af9f551e582507f1d42d49997"><a class="sl-block-content" style="z-index: 16;" href="https://hypothesis.readthedocs.io" target="_blank"><img class="" data-natural-width="240" data-natural-height="210" data-lazy-loaded="" data-src="packaging-python/06ef632d77de3520f44f6a815453005c.png"></a></div></section><section data-id="0867048046ae812a3ba42fe053d97db8"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="9f3e9190c2fdef7ce3b600add4f5891a">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Code Security Check</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 215.421px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="cf81cf8132e96c76c446b30c3c3c2e07">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 9. SECURITY CHECK</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 194.97px; top: 14.5px;" data-block-id="f93a484ea0e4fb89269ae584a44e448a">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="758.0301394511921" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="758.0301394511921" height="1" viewbox="0 0 758.0301394511921 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="758.0301394511921" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="758.0301394511921" y2="0"></line></svg></div></div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 940.71px; left: 9.645px; top: 201.896px;" data-name="text-ca01c1" data-block-id="ad1f8e37b222b75f3e5fa2e2f6e7eb02"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<p style="text-align:left"><em><a href="https://bandit.readthedocs.io" target="_blank">Bandit</a></em> is a tool designed to find common security issues in Python code.</p>
+
+<p style="text-align:left">To do this, <em>Bandit </em>processes each file, builds an AST from it, and runs appropriate plugins against the AST nodes. Once <em>Bandit </em>has finished scanning all the files, it generates a report.</p>
+</div></div>
+
+
+<div class="sl-block" data-block-type="image" style="width: 403.201px; height: 123.145px; left: 530.799px; top: 449.505px; min-width: 1px; min-height: 1px;" data-name="image-e6a345" data-block-id="737192fa4b6c8dda735e948a89dad7d3"><a class="sl-block-content" style="z-index: 14;" href="https://bandit.readthedocs.io" target="_blank"><img class="" data-natural-width="406" data-natural-height="124" data-lazy-loaded="" data-src="packaging-python/2ad38ea892aceb0019d02d4f22b045ef.png"></a></div></section><section data-id="0d69c280e9b625228900e07d132cca85"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="30bd69742bafd77fb170ca48387b26e4">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Coding standards</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 215.421px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="1c0e614569fad6de7ca9f64a9110d3b5">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 10. CODING STANDARDS</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 221.421px; top: 14.5px;" data-block-id="a47349aa3748e20175a2130efbb682b2">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="731.5791605937923" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="731.5791605937923" height="1" viewbox="0 0 731.5791605937923 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="731.5791605937923" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="731.5791605937923" y2="0"></line></svg></div></div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 928.709px; left: 15.6455px; top: 133.732px;" data-name="text-ca01c1" data-block-id="72f1fed8eeb2218bc16d083050fc120d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<p style="text-align:left"><span style="font-size:0.7em">Use <em><a href="https://pycqa.github.io/isort/" target="_blank"><strong>isort</strong></a> </em>for sorting the library imports (yes, imports have a suggested order).<br>
+Check the existence of undesired artifacts using <em><a href="https://flake8.pycqa.org" target="_blank"><strong>Flake8</strong></a> </em>and <a href="https://pylint.readthedocs.io" target="_blank"><em><strong>Pylint</strong></em></a>.</span><br>
+<span style="font-size:0.7em">Keep the code within the same style using <a href="https://black.readthedocs.io" target="_blank"><em><strong>Black</strong></em></a>.</span><br>
+<span style="font-size:0.7em">Those tools can be configured to be <a href="https://peps.python.org/pep-0008/" target="_blank">PEP8</a> compliant. <strong>PEP8 — Python Enhancement Proposal</strong>, is a style guide that provides guidelines and best practices suggestions on how to write Python code.</span></p>
+</div></div>
+
+
+<div class="sl-block" data-block-type="image" style="width: 616.723px; height: 287.873px; left: 296.068px; top: 346.064px; min-width: 1px; min-height: 1px;" data-name="image-fd0229" data-block-id="cfd407d9c349f2263bed754a21b6bf76"><a class="sl-block-content" style="z-index: 14;" href="http://realpython.com/python-pep8/" target="_blank"><img class="" data-natural-width="1920" data-natural-height="1080" data-crop-x="0.040625" data-crop-y="0.047222" data-crop-width="0.940625" data-crop-height="0.780556" style="left: -27px; top: -17px; width: 656px; height: 369px;" data-lazy-loaded="" data-src="packaging-python/0e53aff80d4dc8812491f39a9ed19ad3.png"></a></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 663.932px; left: 296.068px; top: 641.575px;" data-name="text-aca9b3" data-block-id="ac73bb85826d9a196092c727282b6aae"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;" dir="ui">
+<p style="text-align:left"><em><span style="font-size:0.7em">How to write beautiful code with PEP 8 <span class="caption-text">(<a href="https://realpython.com/python-pep8/" target="_blank">source: Real Python</a>)</span></span></em></p>
+</div></div></section><section data-id="f146b54a61b248d0d2f0bc2fca9636d1"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="2dc077d40fae4759ea5a2f14e20d4187">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Choose a license</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 215.421px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="737d8957b7ffac9fa2aa7c88fd2039db">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 11. LICENSE</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 128.213px; top: 14.5px;" data-block-id="f839cd0d7f4d74f1602d5238c83dd435">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="824.7867746288799" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="824.7867746288799" height="1" viewbox="0 0 824.7867746288799 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="824.7867746288799" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="824.7867746288799" y2="0"></line></svg></div></div>
+</div>
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 612.537px; left: 173.732px; top: 637.796px;" data-name="text-aca9b3" data-block-id="b449396f1ec9f3f510bd9185b125b607"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" dir="ui">
+<p><a href="https://choosealicense.com/" target="_blank">https://choosealicense.com/</a></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 651.923px; height: 500.366px; left: 154.039px; top: 129.817px; min-width: 1px; min-height: 1px;" data-name="image-869c24" data-block-id="b4f2acc636147c10333801b24764d6eb"><a class="sl-block-content" style="z-index: 14;" href="https://choosealicense.com/" target="_blank"><img class="" data-natural-width="856" data-natural-height="657" data-lazy-loaded="" data-src="packaging-python/0afdb6d0de7156e771583b528e57ed79.png"></a></div></section><section data-id="cb68eb293a4f7c3b2adfae9c49a7de66"><div class="sl-block" data-block-type="text" style="width: 928px; left: 6px; top: 62px; height: auto;" data-name="text-c29943" data-block-id="81a28ea19870b28186a7b1b3d4735a00">
+    <div class="sl-block-style" style="z-index: 10; transform: rotate(0deg);"><div class="sl-block-content" data-placeholder-tag="h2" style="text-align: left; z-index: 10; color: rgb(255, 255, 255); line-height: 1.17; font-size: 90%;" dir="ui" data-has-line-height="" data-placeholder-text="Text">
+<h2>Documentating your package</h2>
+</div></div>
+</div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 215.421px; left: 6px; top: 1.5px; height: auto;" data-name="text-3f789d" data-block-id="56dafbfad1aa921b42ae02ff18ee5635">
+    <div class="sl-block-style" style="z-index: 12; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-placeholder-tag="pre" style="z-index: 12; text-align: left; font-size: 44%; color: rgb(28, 235, 123); padding: 5px; background-color: rgba(0, 0, 0, 0);" dir="ui" data-placeholder-text="Text">
+<pre># 12. DOCUMENTATION</pre>
+</div></div>
+</div>
+<div class="sl-block" data-block-type="line" data-name="line-49cd6b" style="width: auto; height: auto; left: 200.008px; top: 14.5px;" data-block-id="30b37ba9d93ae6a4bd68e1300e754193">
+    <div class="sl-block-style" style="z-index: 11; filter: drop-shadow(rgba(28, 235, 123, 0.5) 0px 0px 5px);"><div class="sl-block-content" data-line-x1="0" data-line-y1="0" data-line-x2="752.9919028340081" data-line-y2="0" data-line-color="#1ceb7b" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="752.9919028340081" height="1" viewbox="0 0 752.9919028340081 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="0" x2="752.9919028340081" y2="0"></line><line class="line-element" stroke="#1ceb7b" stroke-width="2" x1="0" y1="0" x2="752.9919028340081" y2="0"></line></svg></div></div>
+</div>
+
+
+
+
+<div class="sl-block" data-block-type="image" style="width: 853.424px; height: 480.051px; left: 53.288px; top: 149.949px; min-width: 1px; min-height: 1px;" data-name="image-76237a" data-block-id="b7a4ca9d765b7747b0f834f331ffbc4d"><a class="sl-block-content" style="z-index: 13;" href="http://realpython.com/documenting-python-code/" target="_blank"><img class="" data-natural-width="1920" data-natural-height="1080" data-lazy-loaded="" data-src="packaging-python/1defc3686f66b2446e0a524f94e583f9.png"></a></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 663.932px; left: 76.8005px; top: 641.575px;" data-name="text-aca9b3" data-block-id="1ade2629d2f3222b2a563d134867ecd1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;" dir="ui">
+<p><span style="font-size:0.7em">Documenting Python Code: A Complete Guide (<a href="https://realpython.com/documenting-python-code/" target="_blank">source: Real Python</a>)</span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 281.518px; height: 118.237px; left: 659.241px; top: 166.864px; min-width: 1px; min-height: 1px;" data-name="image-aa8354" data-block-id="080ecebf9572eb311c4c46ebcf7adeed"><div class="sl-block-style" style="z-index: 15; transform: rotate(27deg);"><a class="sl-block-content" style="z-index: 15;" href="https://interrogate.readthedocs.io" target="_blank"><img class="" data-natural-width="1000" data-natural-height="420" data-lazy-loaded="" data-src="packaging-python/1ef099a2df4162ae82a52aeb723dbd36.png"></a></div></div></section>
+			</div>
+		</div>
+
+		<script>
+			var SLConfig = {"deck": {"id":2540128,"slug":"packaging-python","title":"Packaging-python","description":"","width":960,"height":700,"margin":0.05,"visibility":"self","published_at":"2020-11-27T13:47:42.145Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/aae1c2cfced6d99b63b6bd58d0982d5a/thumb.jpg?1674418013","view_count":0,"user":{"id":99693,"username":"patechoc","name":"Patrick Merlot","description":"Data Science, Computation Science, Electronics Systems, IoT and Mobile Communication, Dialectical materialism","thumbnail_url":"https://lh5.googleusercontent.com/-ed6cmM0559o/AAAAAAAAAAI/AAAAAAABs_o/uLwscELIloI/photo.jpg","account_type":"lite","team_id":null,"settings":{"id":79538,"present_controls":true,"present_upsizing":true,"present_pointer":true,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"none","transition":"none","theme_id":null,"theme_font":"helvetica","theme_color":"black-mint","auto_slide_interval":0,"comments_enabled":false,"forking_enabled":false,"rolling_links":false,"center":false,"shuffle":false,"should_loop":false,"share_notes":false,"slide_number":true,"slide_count":49,"rtl":false,"version":2,"collaborative":false,"deck_user_editor_limit":1,"data_updated_at":1674424119662,"font_typekit":null,"font_google":null,"time_limit":null,"navigation_mode":"default","upsizing_enabled":true,"notes":{"7d903694b4f32e606046ade8839315e6":"","b82e90deecf7b0b19c0cbf212b943e0b":"What are Python scripts/modules/packages?\n- https://py-pkgs.org/04-package-structure.html\n- https://realpython.com/lessons/scripts-modules-packages-and-libraries/\n- https://realpython.com/courses/python-modules-packages/\n- https://python-packaging-tutorial.readthedocs.io\n- python plugins to your library: https://packaging.python.org/en/latest/guides/creating-and-discovering-plugins/\n- Poetry plugins: https://python-poetry.org/docs/master/plugins/\n\nChallenges? ex.: os.path different on Windows/Linux\n\nHow do you package your code?\n- https://packaging.python.org/en/latest/tutorials/packaging-projects/\n- https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python\n\nWhere you run/deploy your app? Containerized App. Dev. (Docker, ...)\n- https://code.visualstudio.com/docs/containers/quickstart-python\n\nDemo:\nhttps://github.com/luchonaveiro/great-expectations-postgres-tutorial (Docker Compose, )\nhttps://github.com/moritzkoerber/covid-19-data-engineering-pipeline (GE, with covid data, on AWS with AirFlow)","ae462f901a6706bd285d0903b35dcaee":"","98f68e4c73fee33031843ceaf6a6bf2e":"","4382e7e13b7428afd8f179598055ce2d":"","691c37126900829ac88b9d0f9c019e29":"","b67bef15b2fef8588773a599fc176840":"","7a05933b61d866a502f6bab238be44f4":"","f44487e27ac6edda67cdda26e2c45f3b":"","756fd64b5168abb97db4cc6f385fac5e":"","005fefc3b6684bc42b8fd2b4c628106c":"","485946ac5c32945719988178efb6f988":"","3a978a4ac60508e37786bd8b684216c3":"","2dfbf4809b4918bb43ce7acf33df9203":"","33436f05a595489b617abe0025ba3aa5":"","cc57f28b9c97319e8c9719c58affd8f0":"","223bc6d88f75a77a65c4b4549ec28201":"","505699738bf06d2a69f34243719feebc":"","4fa8860bfafcf637d45d01a5cf2805d4":"","d04e06ac11aa933f0ca53d9f03341141":"","b8a54ed971159e3be7a37fe07d07d043":"What are Python scripts/modules/packages?\n- https://py-pkgs.org/04-package-structure.html\n- https://realpython.com/lessons/scripts-modules-packages-and-libraries/\n- https://realpython.com/courses/python-modules-packages/\n- https://python-packaging-tutorial.readthedocs.io\n- python plugins to your library: https://packaging.python.org/en/latest/guides/creating-and-discovering-plugins/\n- Poetry plugins: https://python-poetry.org/docs/master/plugins/\n","7ca25c9b37c5804ed84a3e287f36cf7a":"","9d1e75dfa1cdd4f7a446ee583f9e20fa":"","78ccc8e5f4eda6a6351c00ab40b22858":"","19df42699480abede928474f95d0490e":"https://python-packaging-tutorial.readthedocs.io/en/latest/","4fa19a40931ab86bf743f317293c40b6":"","1d39ba18044fefab71512bddd2a3162f":"","3231d93fb94f89267195b5e63cf67fc9":"","e3490bed83796ff29c2f4d51f379be58":"- Official Python: https://packaging.python.org/en/latest/flow/\n- Best Practices: https://py-pkgs.org/04-package-structure.html\n- Conda experts: https://python-packaging-tutorial.readthedocs.io/en/latest/","51c4057579d7523d7879edffcdcf6dc3":"What Does if __name__ == \"__main__\" Do in Python?\nhttps://realpython.com/if-name-main-python/ ","fc57cdd5d071a302b920f48aa3986967":"","9371a55c94189db256dc57de29956242":"","b1cc3f811bc58af093c0ce9467d9ed7b":"","9b7ed042abb77dc71853e9cd4b936f53":"","4b5de13fed255310de9ca8ef47565d42":"","5094384ce74d809eec30fae6c3dba384":"","e2d6b18eb1c7b7b7b37f82e79beba7df":"","448905eaf709917ef8fa14f72302ca60":"","b81ca2754ccdda0d3aea0a7bc84364fb":"","260f93acf9a486efb8578bc83509c42b":"","23c725fcc9a735d1dd94425d1aa82ec4":"","62d31301a4910502e0b411b721216d44":"","ba6741ba1d48842d2201575429630502":"","b6a64fa9c498a0076358b92572bae598":"","390f24a9f7bb98e75b2d37e406667873":"https://www.digitalocean.com/community/tutorials/how-to-publish-python-packages-to-pypi-using-poetry-on-ubuntu-22-04#step-3-building-your-project","2b9d42443ccc920d953f11a5e34f1084":"","6ba4f2dbac01e2ba6de09377a98be3a8":"","637c61d87283873895f83b625116b522":"","5ab636b7b039f6923e01baa646d41cb6":"","d29323e7555653229c358cf57d330540":"","ee47fe9a75980414d0911191a9c524c2":"","796acf82887dad7f06b51b74abf0233e":"","c1c98d8e8cdc9dc01d32ee964f297576":"","10e382f170283e804228e34e7dbdb058":"","bcc05b1e2b74b4d719abb4cc63e349a9":"","ef0120800a7f0ef6a135f53660f54f19":"","ca297102eedd19c7159e0d2148b9e366":"","775e0a85158f83cc767f4fda4dc2cd4d":"","444e2f002b432e1190e7e4265fcd0272":"","a8074451f79ed415c6ea235d34b8c6f7":"","29cdcda70accffa7a6e2708dd962c52c":"","123b371dcc41de89188891a4b098d4f8":"","0d69c280e9b625228900e07d132cca85":"","0867048046ae812a3ba42fe053d97db8":"","fd4b4f077bff799b70d7118b7a63b202":"","2a26522e13cac9140170075c685d43e0":"","a413cb36e4a97aa6c89d6f199fad159d":"","b315b3fd892f0cab77bcf83325ee5824":"","14a3cecf6533a3e0f490f4a3445d48e2":"","8af79b076910585251b6302a58c6b961":"","50f2a5ec408873e61a357ecf3fd7f72f":"","a42f7311e9b1a2422f4d19ec3bd0cc5c":"","0306cb0f3494681636f32794196ee66e":"","9a0cdfe06f776021639cdbb6e53a02c4":"","5faa5474ddbd44074d6b1e76b8936c9c":"","3e593ede3d426102c622527c2e136668":"","61186a897bcb300e9848e67c6bdafcd2":"","f146b54a61b248d0d2f0bc2fca9636d1":"","cb68eb293a4f7c3b2adfae9c49a7de66":""}}};
+
+
+			// Use local fonts
+			SLConfig.fonts_url = 'lib/fonts/';
+		</script>
+
+		<script src="lib/reveal.js"></script>
+		<script src="lib/reveal-plugins.js"></script>
+		<script src="lib/offline.js"></script>
+
+		<!-- Initialize the presentation -->
+		<script>
+			Reveal.initialize({
+				width: 960,
+				height: 700,
+				margin: 0.05,
+				
+
+				hash: true,
+				controls: true,
+				progress: true,
+				mouseWheel: false,
+				showNotes: false,
+				slideNumber: true,
+				fragmentInURL: true,
+
+				autoSlide: 0,
+				autoSlideStoppable: true,
+
+				autoAnimateMatcher: SL.deck.AutoAnimate.matcher,
+
+				center: false,
+				shuffle: false,
+				loop: false,
+				rtl: false,
+				navigationMode: "default",
+
+				transition: "none",
+				backgroundTransition: "none",
+
+				highlight: {
+					escapeHTML: false
+				},
+
+				plugins: [ RevealZoom, RevealNotes, RevealMarkdown, RevealHighlight ]
+			});
+		</script>
+
+		
+
+	</body>
+</html>
